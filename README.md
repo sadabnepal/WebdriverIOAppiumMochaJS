@@ -12,7 +12,7 @@
 ### Getting Started:
 Clone Repository
 ```bash
-https://github.com/sadabnepal/WebdriverIOAppiumMochaJS.git
+git clone https://github.com/sadabnepal/WebdriverIOAppiumMochaJS.git
 Navigate to `WebdriverIOAppiumMochaJS`
 ```
 
