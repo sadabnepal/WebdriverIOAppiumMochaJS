@@ -35,12 +35,13 @@ describe('Android element tests', () => {
         await apiDemoAppPage.navigateBackToMainMenu()
     })
 
-    it('should validate screen top sendkeys', async () => {
+    it.only('should validate screen top sendkeys', async () => {
         await apiDemoAppPage.viewsMenuElement.click();
         await apiDemoAppPage.autocompleteViewSubMenuElement.click();
         await apiDemoAppPage.screenTopElement.click();
         await apiDemoAppPage.countryInputElement.setValue('Nepal')
         await expect(apiDemoAppPage.countryInputElement).toHaveText('Nepal')
+        await apiDemoAppPage.navigateBackToMainMenu()
     })
 
 })
