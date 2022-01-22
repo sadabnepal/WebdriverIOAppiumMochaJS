@@ -23,7 +23,9 @@ exports.config = {
         "appium:platformVersion": "11",
         "appium:deviceName": "Pixel 3",
         "appium:automationName": "UiAutomator2",
-        "appium:app": path.join(process.cwd(), 'app', 'android', 'ApiDemos-debug.apk')
+        "appium:app": path.join(process.cwd(), 'app', 'android', 'ApiDemos-debug.apk'),
+        'appium:noReset': true,
+        'appium:newCommandTimeout': 240
     }],
     // ===================
     // Test Configurations
