@@ -1,8 +1,10 @@
 const MainMenuPage = require('../pages/mainmenu/mainMenu.page');
-const AlertAppPage = require('../pages/submenu/AlertApp.page');
+const AlertAppPage = require('../pages/submenu/alertApp.page');
 const AppMenuPage = require('../pages/submenu/app.page');
-const AutoCompletePage = require('../pages/submenu/autoComplete.page')
-const { APP_HEADER, COMMAND_TWO_POPUP_MSG, MENU_ITEMS, ALERT_TEXT } = require('../static/constants');
+const AutoCompletePage = require('../pages/submenu/autoComplete.page');
+const GalleryPage = require('../pages/submenu/gallery.page');
+const wallpaperPage = require('../pages/submenu/wallpaper.page');
+const { APP_HEADER, COMMAND_TWO_POPUP_MSG, MENU_ITEMS, ALERT_TEXT, WALLPAPER_TEXT } = require('../static/constants');
 
 describe('Android element tests', () => {
 
@@ -44,6 +46,19 @@ describe('Android element tests', () => {
         expect(await driver.getAlertText()).toEqual(ALERT_TEXT)
         await driver.dismissAlert()
         await expect(AlertAppPage.alertTitleElement).not.toExist()
+    })
+
+    it('should validate vertical scrolling', async ()=> {
+        await MainMenuPage.openMainMenu()
+        await MainMenuPage.clickOnAppMenu()
+        await AppMenuPage.clickOnActivityMenu()
+        await wallpaperPage.scrollAndclickOnWallpaperMenu()
+        await expect(wallpaperPage.wallpaperTextElement).toHaveTextContaining(WALLPAPER_TEXT)
+    })
+
+    it('should validate horizontal scrolling', async ()=> {
+        await GalleryPage.openGalleryPage()
+        await GalleryPage.scrollGalleryHorizontally()
     })
 
 })
