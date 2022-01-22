@@ -1,4 +1,4 @@
-const { APP_PACKAGE } = require("../static/constants")
+const { APP_PACKAGE } = require("../../static/constants")
 
 class MainMenuPage {
     get appNameHeader() { return $('android.widget.TextView') }

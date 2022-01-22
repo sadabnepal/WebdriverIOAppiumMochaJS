@@ -1,4 +1,4 @@
-const { APP_PACKAGE } = require("../static/constants")
+const { APP_PACKAGE } = require("../../static/constants")
 
 class AutoCompletePage {
     get countryInputElement() { return $('//*[@resource-id="io.appium.android.apis:id/edit"]') }
