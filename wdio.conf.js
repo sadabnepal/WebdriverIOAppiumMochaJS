@@ -54,10 +54,10 @@ exports.config = {
     //
     capabilities: [{
         platformName: "Android",
+        "appium:platformVersion": "11",
         "appium:deviceName": "Pixel 3",
         "appium:automationName": "UiAutomator2",
-        "appium:app" : path.join(process.cwd(),'app', 'android', 'ApiDemos-debug.apk'),
-        "appium:platformVersion": "11"
+        "appium:app": path.join(process.cwd(), 'app', 'android', 'ApiDemos-debug.apk')
     }],
     //
     // ===================
@@ -107,7 +107,7 @@ exports.config = {
     // your test setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the test process.
     services: ['appium'],
-    
+
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber
     // see also: https://webdriver.io/docs/frameworks
@@ -131,7 +131,7 @@ exports.config = {
     reporters: ['spec'],
 
 
-    
+
     //
     // Options to be passed to Mocha.
     // See the full list at http://mochajs.org/
