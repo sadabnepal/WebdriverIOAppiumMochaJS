@@ -33,7 +33,7 @@ Verify appium drivers:
 ```
 npm run listdriver [from root project folder]
 ```
-uiautomator2 should be installed for andriod and xcuitest for ios, if not follow the link in [Requirements](#Requirements) section to install.
+uiautomator2 should be installed for andriod and xcuitest for ios, if not follow the link in [Requirements](#Requirements) section to install. <br/>
 ![appium_driver_list.png](sample/appium_driver_list.png)
 
 Run Test:
