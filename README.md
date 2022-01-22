@@ -10,13 +10,33 @@
 [![VSCode](https://img.shields.io/badge/-Visual%20Studio%20Code-%233178C6?logo=visual-studio-code)](https://code.visualstudio.com/download)
 
 ### Getting Started:
-Clone Repository
+
+Clone repository:
 ```bash
 git clone https://github.com/sadabnepal/WebdriverIOAppiumMochaJS.git
 Navigate to `WebdriverIOAppiumMochaJS`
 ```
 
-Install the dependencies:
+Install dependencies:
 ```bash
 npm install
+```
+
+Setup/Create virtual device on Andriod studio:
+```
+platformName: Android
+platformVersion: 11
+deviceName: Pixel 3
+```
+
+Verify appium drivers:
+```
+npm run listdriver [from root project folder]
+```
+uiautomator2 should installed for andriod and xcuitest for ios, if not follow the link in [Requirements](#Requirements) section to install.
+![appium_driver_list.png](sample/appium_driver_list.png)
+
+Run Test:
+```
+npm test
 ```

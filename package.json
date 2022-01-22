@@ -4,7 +4,8 @@
   "description": "webdriverio appium learning project",
   "main": "index.js",
   "scripts": {
-    "test": "wdio run wdio.conf.js"
+    "test": "wdio run wdio.conf.js",
+    "listdriver": "appium driver list"
   },
   "keywords": [
     "webdriverio",
