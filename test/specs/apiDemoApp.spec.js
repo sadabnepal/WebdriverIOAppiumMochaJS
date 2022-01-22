@@ -1,49 +1,35 @@
-const MainMenuPage = require('../pages/mainmenu/main_menu.page');
-const AlertAppPage = require('../pages/submenu/alert_app.page');
+const MainMenuPage = require('../pages/mainmenu/mainMenu.page');
+const { APP_HEADER, COMMAND_TWO_POPUP_MSG, MENU_ITEMS } = require('../pages/static/constants');
+const AlertAppPage = require('../pages/submenu/AlertApp.page');
 const AppMenuPage = require('../pages/submenu/app.page');
-const ViewsAppPage = require('../pages/submenu/views_app.page')
-const BasePage = require('../pages/base.page')
+const AutoCompletePage = require('../pages/submenu/autoComplete.page')
 
 describe('Android element tests', () => {
 
     it('should validate app name', async () => {
-        await expect(MainMenuPage.appNameHeader).toHaveText('API Demos');
+        await expect(MainMenuPage.appNameHeader).toHaveText(APP_HEADER);
     })
 
     it('should validate all menu items', async () => {
-        const expectedMenuItems = [
-            'API Demos', 'Accessibility', 'Animation',
-            'App', 'Content', 'Graphics',
-            'Media', 'NFC', 'OS',
-            'Preference', 'Text', 'Views'
-        ]
         const actualMenuItems = await MainMenuPage.allMenuItemsElements.map(async menuItem => await menuItem.getText());
-
-        expect(actualMenuItems).toEqual(expectedMenuItems)
+        expect(actualMenuItems).toEqual(MENU_ITEMS)
         expect(await MainMenuPage.allMenuItemsElements.length).toBeGreaterThan(0);
     })
 
     it('should open Action bar menu item', async () => {
         await MainMenuPage.clickOnAppMenu();
         await expect(AppMenuPage.actionBar).toBeExisting();
-        await driver.back();
     })
 
-    it('should validate e2e tests', async () => {
-        await MainMenuPage.clickOnAppMenu();
-        await AppMenuPage.clickOnAlertMenu()
+    it('should validate command two menu with app activity', async () => {
         await AlertAppPage.navigateToCommandTwoPopup()
-        await expect(AlertAppPage.commandTwoMsgElement).toHaveText('You selected: 1 , Command two');
-        await BasePage.navigateBackThreeTime()
+        await expect(AlertAppPage.commandTwoMsgElement).toHaveText(COMMAND_TWO_POPUP_MSG);
     })
 
     it('should validate screen top sendkeys', async () => {
-        await MainMenuPage.clickOnViewsMenu()
-        await ViewsAppPage.autocompleteViewSubMenuElement.click();
-        await ViewsAppPage.screenTopElement.click();
-        await ViewsAppPage.countryInputElement.setValue('Nepal')
-        await expect(ViewsAppPage.countryInputElement).toHaveText('Nepal')
-        await BasePage.navigateBackThreeTime()
+        await AutoCompletePage.openCountryInputPage()
+        await AutoCompletePage.countryInputElement.setValue('Nepal')
+        await expect(AutoCompletePage.countryInputElement).toHaveText('Nepal')
     })
 
 })

@@ -4,6 +4,7 @@ class AlertAppPage {
     get commandTwoMsgElement() { return $('//android.widget.TextView') }
 
     async navigateToCommandTwoPopup() {
+        await driver.startActivity("io.appium.android.apis", ".app.AlertDialogSamples")
         await this.listDialougElement.click();
         await this.commandTwoElement.click();
     }
