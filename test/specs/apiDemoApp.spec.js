@@ -1,8 +1,8 @@
 const MainMenuPage = require('../pages/mainmenu/mainMenu.page');
-const { APP_HEADER, COMMAND_TWO_POPUP_MSG, MENU_ITEMS } = require('../pages/static/constants');
 const AlertAppPage = require('../pages/submenu/AlertApp.page');
 const AppMenuPage = require('../pages/submenu/app.page');
 const AutoCompletePage = require('../pages/submenu/autoComplete.page')
+const { APP_HEADER, COMMAND_TWO_POPUP_MSG, MENU_ITEMS } = require('../pages/static/constants');
 
 describe('Android element tests', () => {
 
