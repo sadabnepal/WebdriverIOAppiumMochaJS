@@ -2,7 +2,7 @@ const MainMenuPage = require('../pages/mainmenu/mainMenu.page');
 const AlertAppPage = require('../pages/submenu/AlertApp.page');
 const AppMenuPage = require('../pages/submenu/app.page');
 const AutoCompletePage = require('../pages/submenu/autoComplete.page')
-const { APP_HEADER, COMMAND_TWO_POPUP_MSG, MENU_ITEMS } = require('../static/constants');
+const { APP_HEADER, COMMAND_TWO_POPUP_MSG, MENU_ITEMS, ALERT_TEXT } = require('../static/constants');
 
 describe('Android element tests', () => {
 
@@ -30,6 +30,20 @@ describe('Android element tests', () => {
         await AutoCompletePage.openCountryInputPage()
         await AutoCompletePage.countryInputElement.setValue('Nepal')
         await expect(AutoCompletePage.countryInputElement).toHaveText('Nepal')
+    })
+
+    it('should validate alert text and accept alert', async()=> {
+        await AlertAppPage.clickOnOkCancelDialouge()
+        expect(await driver.getAlertText()).toEqual(ALERT_TEXT)
+        await driver.acceptAlert()
+        await expect(AlertAppPage.alertTitleElement).not.toExist()
+    })
+
+    it('should validate alert text and dismiss alert', async()=> {
+        await AlertAppPage.clickOnOkCancelDialouge()
+        expect(await driver.getAlertText()).toEqual(ALERT_TEXT)
+        await driver.dismissAlert()
+        await expect(AlertAppPage.alertTitleElement).not.toExist()
     })
 
 })
