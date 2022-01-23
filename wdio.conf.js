@@ -1,4 +1,5 @@
 const path = require('path');
+const MOCHA_OUTPUT_DIR = "reports/mocha/";
 
 exports.config = {
     // ====================
@@ -42,7 +43,13 @@ exports.config = {
     framework: 'mocha',
     // specFileRetries: 1,
     // specFileRetriesDelay: 0,
-    reporters: ['spec'],
+    reporters: ['spec',
+        ['mochawesome', {
+            outputDir: MOCHA_OUTPUT_DIR,
+            outputFileFormat: (opts) => {
+                return `results-${opts.cid}.${opts.capabilities.platformName}.json`
+            }
+        }]],
     mochaOpts: {
         ui: 'bdd',
         timeout: 60000
@@ -132,8 +139,11 @@ exports.config = {
      * @param {Boolean} result.passed    true if test has passed, otherwise false
      * @param {Object}  result.retries   informations to spec related retries, e.g. `{ attempts: 0, limit: 0 }`
      */
-    // afterTest: function(test, context, { error, result, duration, passed, retries }) {
-    // },
+    afterTest: async function (test, context, { error, result, duration, passed, retries }) {
+        if (!passed) {
+            await driver.takeScreenshot();
+        }
+    },
 
 
     /**
@@ -176,8 +186,10 @@ exports.config = {
      * @param {Array.<Object>} capabilities list of capabilities details
      * @param {<Object>} results object containing test results
      */
-    // onComplete: function(exitCode, config, capabilities, results) {
-    // },
+    onComplete: function (exitCode, config, capabilities, results) {
+        const mergeResults = require('wdio-mochawesome-reporter/mergeResults')
+        mergeResults(MOCHA_OUTPUT_DIR, "results-*");
+    },
     /**
     * Gets executed when a refresh happens.
     * @param {String} oldSessionId session ID of the old session

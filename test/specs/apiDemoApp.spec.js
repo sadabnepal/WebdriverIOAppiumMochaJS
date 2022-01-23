@@ -7,7 +7,7 @@ const GalleryPage = require('../pages/submenu/gallery.page');
 const wallpaperPage = require('../pages/submenu/wallpaper.page');
 const { APP_HEADER, COMMAND_TWO_POPUP_MSG, MENU_ITEMS, ALERT_TEXT, WALLPAPER_TEXT } = require('../static/constants');
 
-describe('Android element tests', () => {
+describe('API Demo Android APP tests', () => {
 
     it('should validate app name', async () => {
         await expect(MainMenuPage.appNameHeader).toHaveText(APP_HEADER);

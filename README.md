@@ -11,26 +11,26 @@
 
 ### Getting Started:
 
-Clone repository:
+#### Clone repository:
 ```bash
 git clone https://github.com/sadabnepal/WebdriverIOAppiumMochaJS.git
 Navigate to `WebdriverIOAppiumMochaJS`
 ```
 Note: all npm command should be executed from root project folder.
 
-Install dependencies:
+#### Install dependencies:
 ```bash
 npm install
 ```
 
-Setup/Create virtual device on Andriod studio:
+#### Setup/Create virtual device on Andriod studio:
 ```
 platformName: Android
 platformVersion: 11
 deviceName: Pixel 3
 ```
 
-Verify appium drivers:
+#### Verify appium drivers:
 ```
 npm run list-driver
 ```
@@ -43,7 +43,10 @@ npm run install-driver-android
 npm run install-driver-ios
 ```
 
-Run Test:
+#### Run Test:
 ```
 npm test
 ```
+
+#### Sample Report
+![report.png](sample/report.png)

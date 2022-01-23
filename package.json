@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "wdio run wdio.conf.js",
+    "report": "marge ./reports/mocha/wdio-ma-merged.json && move mochawesome-report.html ./mochawesome-report",
     "list-driver": "appium driver list",
     "install-driver-android": "appium driver install uiautomator2",
     "install-driver-ios": "appium driver install xcuitest"
@@ -24,6 +25,8 @@
     "@wdio/appium-service": "^7.16.13",
     "@wdio/local-runner": "^7.16.13",
     "@wdio/mocha-framework": "^7.16.13",
-    "@wdio/spec-reporter": "^7.16.13"
+    "@wdio/spec-reporter": "^7.16.13",
+    "mochawesome-report-generator": "^3.1.5",
+    "wdio-mochawesome-reporter": "^4.0.0"
   }
 }
