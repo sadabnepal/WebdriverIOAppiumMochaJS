@@ -64,7 +64,8 @@ describe('Android element tests', () => {
         await GalleryPage.scrollGalleryHorizontally()
     })
 
-    it.only('should validate next month date selection using scroll', async () => {
+    it('should validate next month date selection using scroll', async () => {
+        await MainMenuPage.openMainMenu()
         await MainMenuPage.clickOnViewsMenu()
         await dateViewsPage.openDateDialougeMenu()
         const currentDate = await dateViewsPage.dateElement.getText()
