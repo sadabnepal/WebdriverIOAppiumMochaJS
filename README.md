@@ -49,4 +49,4 @@ npm test
 ```
 
 #### Sample Report
-![report.png](sample/report.png)
+![report.png](sample/report.PNG)
