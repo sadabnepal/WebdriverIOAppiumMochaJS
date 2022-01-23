@@ -1,7 +1,6 @@
-const path = require('path');
-const MOCHA_OUTPUT_DIR = "reports/mocha/";
+import { ANDROID_APP_PATH, MOCHA_OUTPUT_DIR } from './src/test/static/pathconstants';
 
-exports.config = {
+export const config = {
     // ====================
     // Runner Configuration
     // ====================
@@ -10,7 +9,7 @@ exports.config = {
     // Specify Test Files
     // ==================
     specs: [
-        './test/specs/**/*.js'
+        './src/test/specs/**/*.js'
     ],
     exclude: [
         // 'path/to/excluded/files'
@@ -24,7 +23,7 @@ exports.config = {
         "appium:platformVersion": "11",
         "appium:deviceName": "Pixel 3",
         "appium:automationName": "UiAutomator2",
-        "appium:app": path.join(process.cwd(), 'app', 'android', 'ApiDemos-debug.apk'),
+        "appium:app": ANDROID_APP_PATH,
         'appium:noReset': true,
         'appium:newCommandTimeout': 240,
         "appium:autoGrantPermissions": true
@@ -139,6 +138,7 @@ exports.config = {
      * @param {Boolean} result.passed    true if test has passed, otherwise false
      * @param {Object}  result.retries   informations to spec related retries, e.g. `{ attempts: 0, limit: 0 }`
      */
+    // eslint-disable-next-line no-unused-vars
     afterTest: async function (test, context, { error, result, duration, passed, retries }) {
         if (!passed) {
             await driver.takeScreenshot();
@@ -186,6 +186,7 @@ exports.config = {
      * @param {Array.<Object>} capabilities list of capabilities details
      * @param {<Object>} results object containing test results
      */
+    // eslint-disable-next-line no-unused-vars
     onComplete: function (exitCode, config, capabilities, results) {
         const mergeResults = require('wdio-mochawesome-reporter/mergeResults')
         mergeResults(MOCHA_OUTPUT_DIR, "results-*");
