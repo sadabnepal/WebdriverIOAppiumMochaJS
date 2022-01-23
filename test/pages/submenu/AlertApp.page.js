@@ -1,4 +1,4 @@
-const { APP_PACKAGE } = require("../../static/constants")
+import { APP_PACKAGE } from "../../static/constants"
 
 class AlertAppPage {
     get listDialougElement() { return $("//*[@content-desc='List dialog']") }
@@ -21,4 +21,4 @@ class AlertAppPage {
         await this.okCancelElement.click();
     }
 }
-module.exports = new AlertAppPage()
+export default new AlertAppPage()

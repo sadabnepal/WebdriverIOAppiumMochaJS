@@ -1,4 +1,4 @@
-const { APP_PACKAGE } = require("../../static/constants")
+import { APP_PACKAGE } from "../../static/constants"
 
 class AutoCompletePage {
     get countryInputElement() { return $('//*[@resource-id="io.appium.android.apis:id/edit"]') }
@@ -7,4 +7,4 @@ class AutoCompletePage {
         await driver.startActivity(APP_PACKAGE, ".view.AutoComplete1")
     }
 }
-module.exports = new AutoCompletePage()
+export default new AutoCompletePage()

@@ -1,4 +1,4 @@
-const { APP_PACKAGE } = require("../../static/constants")
+import { APP_PACKAGE } from "../../static/constants"
 
 class MainMenuPage {
     get appNameHeader() { return $('android.widget.TextView') }
@@ -18,4 +18,4 @@ class MainMenuPage {
         await this.viewsMenuElement.click()
     }
 }
-module.exports = new MainMenuPage()
+export default new MainMenuPage()

@@ -7,4 +7,4 @@ class AppMenuPage {
     }
 
 }
-module.exports = new AppMenuPage()
+export default new AppMenuPage()

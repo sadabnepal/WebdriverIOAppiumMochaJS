@@ -1,5 +1,5 @@
-const { APP_PACKAGE } = require("../../static/constants")
-const { scrollHorizontally } = require("../base.page")
+import { APP_PACKAGE } from "../../static/constants"
+import BasePage from "../base.page"
 
 class GalleryPage {
 
@@ -8,8 +8,8 @@ class GalleryPage {
     }
 
     async scrollGalleryHorizontally() {
-        await scrollHorizontally()
+        await BasePage.scrollHorizontally()
     }
 
 }
-module.exports = new GalleryPage()
+export default new GalleryPage()

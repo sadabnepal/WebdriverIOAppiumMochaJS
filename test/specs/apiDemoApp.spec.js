@@ -1,11 +1,11 @@
-const MainMenuPage = require('../pages/mainmenu/mainMenu.page');
-const AlertAppPage = require('../pages/submenu/alertApp.page');
-const AppMenuPage = require('../pages/submenu/app.page');
-const AutoCompletePage = require('../pages/submenu/autoComplete.page');
-const dateViewsPage = require('../pages/submenu/dateViews.page');
-const GalleryPage = require('../pages/submenu/gallery.page');
-const wallpaperPage = require('../pages/submenu/wallpaper.page');
-const { APP_HEADER, COMMAND_TWO_POPUP_MSG, MENU_ITEMS, ALERT_TEXT, WALLPAPER_TEXT } = require('../static/constants');
+import MainMenuPage from '../pages/mainmenu/mainMenu.page';
+import AlertAppPage from '../pages/submenu/alertApp.page';
+import AppMenuPage from '../pages/submenu/app.page';
+import AutoCompletePage from '../pages/submenu/autoComplete.page';
+import dateViewsPage from '../pages/submenu/dateViews.page';
+import GalleryPage from '../pages/submenu/gallery.page';
+import wallpaperPage from '../pages/submenu/wallpaper.page';
+import { APP_HEADER, COMMAND_TWO_POPUP_MSG, MENU_ITEMS, ALERT_TEXT, WALLPAPER_TEXT } from '../static/constants';
 
 describe('API Demo Android APP tests', () => {
 

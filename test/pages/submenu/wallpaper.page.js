@@ -1,12 +1,12 @@
-const { scrollAndClickByText } = require("../base.page")
+import BasePage from "../base.page"
 
 class WallpaperPage {
 
     async scrollAndclickOnWallpaperMenu() {
-        await scrollAndClickByText('Wallpaper')
+        await BasePage.scrollAndClickByText('Wallpaper')
     }
 
     get wallpaperTextElement() { return $('//*[@resource-id="io.appium.android.apis:id/text"]') }
 
 }
-module.exports = new WallpaperPage()
+export default new WallpaperPage()

@@ -1,4 +1,4 @@
-const { scrollHorizontally } = require("../base.page");
+import BasePage from "../base.page"
 
 class DateViewPage {
 
@@ -18,10 +18,10 @@ class DateViewPage {
     }
 
     async scrollToNextMonthAndSelectDay(day) {
-        await scrollHorizontally()
+        await BasePage.scrollHorizontally()
         await this.selectDay(day)
         await this.dateOKButton.click()
     }
 
 }
-module.exports = new DateViewPage()
+export default new DateViewPage()
