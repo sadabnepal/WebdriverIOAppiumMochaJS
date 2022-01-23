@@ -13,7 +13,7 @@ class DateViewPage {
     }
 
     async openDateDialougeMenu() {
-        await this.dateWidgetMenu.click()        
+        await this.dateWidgetMenu.click()
         await this.dialogOption.click()
     }
 

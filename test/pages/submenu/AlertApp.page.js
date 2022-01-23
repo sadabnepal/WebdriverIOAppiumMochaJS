@@ -21,4 +21,4 @@ class AlertAppPage {
         await this.okCancelElement.click();
     }
 }
-module.exports = new AlertAppPage(0)
+module.exports = new AlertAppPage()
