@@ -18,7 +18,6 @@ class AlertAppPage {
     }
 
     async clickOnOkCancelDialouge() {
-        await this.openAlertPage()
         await this.okCancelElement.click();
     }
 }

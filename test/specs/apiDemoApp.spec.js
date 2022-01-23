@@ -2,6 +2,7 @@ const MainMenuPage = require('../pages/mainmenu/mainMenu.page');
 const AlertAppPage = require('../pages/submenu/alertApp.page');
 const AppMenuPage = require('../pages/submenu/app.page');
 const AutoCompletePage = require('../pages/submenu/autoComplete.page');
+const dateViewsPage = require('../pages/submenu/dateViews.page');
 const GalleryPage = require('../pages/submenu/gallery.page');
 const wallpaperPage = require('../pages/submenu/wallpaper.page');
 const { APP_HEADER, COMMAND_TWO_POPUP_MSG, MENU_ITEMS, ALERT_TEXT, WALLPAPER_TEXT } = require('../static/constants');
@@ -34,21 +35,23 @@ describe('Android element tests', () => {
         await expect(AutoCompletePage.countryInputElement).toHaveText('Nepal')
     })
 
-    it('should validate alert text and accept alert', async()=> {
+    it('should validate alert text and accept alert', async () => {
+        await AlertAppPage.openAlertPage()
         await AlertAppPage.clickOnOkCancelDialouge()
         expect(await driver.getAlertText()).toEqual(ALERT_TEXT)
         await driver.acceptAlert()
         await expect(AlertAppPage.alertTitleElement).not.toExist()
     })
 
-    it('should validate alert text and dismiss alert', async()=> {
+    it('should validate alert text and dismiss alert', async () => {
+        await AlertAppPage.openAlertPage()
         await AlertAppPage.clickOnOkCancelDialouge()
         expect(await driver.getAlertText()).toEqual(ALERT_TEXT)
         await driver.dismissAlert()
         await expect(AlertAppPage.alertTitleElement).not.toExist()
     })
 
-    it('should validate vertical scrolling', async ()=> {
+    it('should validate vertical scrolling', async () => {
         await MainMenuPage.openMainMenu()
         await MainMenuPage.clickOnAppMenu()
         await AppMenuPage.clickOnActivityMenu()
@@ -56,9 +59,19 @@ describe('Android element tests', () => {
         await expect(wallpaperPage.wallpaperTextElement).toHaveTextContaining(WALLPAPER_TEXT)
     })
 
-    it('should validate horizontal scrolling', async ()=> {
+    it('should validate horizontal scrolling', async () => {
         await GalleryPage.openGalleryPage()
         await GalleryPage.scrollGalleryHorizontally()
+    })
+
+    it.only('should validate next month date selection using scroll', async () => {
+        await MainMenuPage.clickOnViewsMenu()
+        await dateViewsPage.openDateDialougeMenu()
+        const currentDate = await dateViewsPage.dateElement.getText()
+        await dateViewsPage.changeDateButton.click()
+        await dateViewsPage.scrollToNextMonthAndSelectDay(10)
+        const updateDate = await dateViewsPage.dateElement.getText()
+        expect(updateDate).not.toEqual(currentDate)
     })
 
 })
