@@ -25,7 +25,8 @@ exports.config = {
         "appium:automationName": "UiAutomator2",
         "appium:app": path.join(process.cwd(), 'app', 'android', 'ApiDemos-debug.apk'),
         'appium:noReset': true,
-        'appium:newCommandTimeout': 240
+        'appium:newCommandTimeout': 240,
+        "appium:autoGrantPermissions": true
     }],
     // ===================
     // Test Configurations
