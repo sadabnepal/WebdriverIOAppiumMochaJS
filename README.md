@@ -16,6 +16,7 @@ Clone repository:
 git clone https://github.com/sadabnepal/WebdriverIOAppiumMochaJS.git
 Navigate to `WebdriverIOAppiumMochaJS`
 ```
+Note: all npm command should be executed from root project folder.
 
 Install dependencies:
 ```bash
@@ -31,10 +32,16 @@ deviceName: Pixel 3
 
 Verify appium drivers:
 ```
-npm run listdriver [from root project folder]
+npm run list-driver
 ```
-uiautomator2 should be installed for andriod and xcuitest for ios, if not follow the link in [Requirements](#Requirements) section to install. <br/>
+uiautomator2 should be installed for andriod and xcuitest for ios<br/>
 ![appium_driver_list.png](sample/appium_driver_list.png)
+
+If drivers are not installed then run below commnad as required:
+```
+npm run install-driver-android
+npm run install-driver-ios
+```
 
 Run Test:
 ```
