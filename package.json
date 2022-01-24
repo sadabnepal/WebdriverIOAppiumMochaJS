@@ -8,7 +8,8 @@
     "report": "marge ./reports/mocha/wdio-ma-merged.json && move mochawesome-report.html ./mochawesome-report",
     "list-driver": "appium driver list",
     "install-driver-android": "appium driver install uiautomator2",
-    "install-driver-ios": "appium driver install xcuitest"
+    "install-driver-ios": "appium driver install xcuitest",
+    "android-doctor": "appium-doctor"
   },
   "keywords": [
     "webdriverio",
@@ -19,7 +20,8 @@
   "license": "ISC",
   "dependencies": {
     "@wdio/cli": "^7.16.13",
-    "appium": "^2.0.0-beta.24"
+    "appium": "^2.0.0-beta.24",
+    "appium-doctor": "^1.16.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.16.8",

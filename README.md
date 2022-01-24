@@ -43,10 +43,22 @@ npm run install-driver-android
 npm run install-driver-ios
 ```
 
-#### Run Test:
+#### Verify all pre-requisit for android:
+```
+npm run android-doctor
+```
+all options should be green checked as shown in below image to start.
+![android_config.png](sample/android_config.png)
+
+### Run Test:
 ```
 npm test
 ```
 
-#### Sample Report
-![report.png](sample/report.PNG)
+### Generate Report:
+```
+npm run report
+```
+
+### Sample Report
+![report.png](sample/report.png)
