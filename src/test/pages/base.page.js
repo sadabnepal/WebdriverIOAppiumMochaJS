@@ -5,11 +5,11 @@ class BasePage {
     }
 
     async scrollAndClickByText(text) {
-        await $(`android=new UiScrollable(new UiSelector().scrollable(true)).scrollTextIntoView("${text}")`).click();
+        await $(`android=new UiScrollable(new UiSelector()).scrollTextIntoView("${text}")`).click();
     }
 
     async scrollHorizontally() {
-        await $('android=new UiScrollable(new UiSelector().scrollable(true)).setAsHorizontalList().scrollForward(2)');
+        await $('android=new UiScrollable(new UiSelector()).setAsHorizontalList().scrollForward(2)');
     }
 
 }
