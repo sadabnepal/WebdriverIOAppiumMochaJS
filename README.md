@@ -23,7 +23,7 @@ Note: all npm command should be executed from root project folder.
 npm install
 ```
 
-#### Setup/Create virtual device on Andriod studio:
+#### Setup/Create virtual device on Android studio:
 ```
 platformName: Android
 platformVersion: 11
@@ -34,7 +34,7 @@ deviceName: Pixel 3
 ```
 npm run list-driver
 ```
-uiautomator2 should be installed for andriod and xcuitest for ios<br/>
+uiautomator2 should be installed for android and xcuitest for ios<br/>
 ![appium_driver_list.png](sample/appium_driver_list.png)
 
 If drivers are not installed then run below commnad as required:
@@ -43,7 +43,7 @@ npm run install-driver-android
 npm run install-driver-ios
 ```
 
-#### Verify all pre-requisit for android:
+#### Verify all pre-requisite for android:
 ```
 npm run android-doctor
 ```
