@@ -1,3 +1,5 @@
+import { APP_PACKAGE } from "../static/constants";
+
 class BasePage {
 
     findByTextContains(partialText) {
@@ -10,6 +12,10 @@ class BasePage {
 
     async scrollHorizontally() {
         await $('android=new UiScrollable(new UiSelector()).setAsHorizontalList().scrollForward(2)');
+    }
+
+    async openUsingPackage(packageName) {
+        await driver.startActivity(APP_PACKAGE, packageName)
     }
 
 }

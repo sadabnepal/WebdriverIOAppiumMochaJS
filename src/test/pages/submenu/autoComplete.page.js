@@ -1,10 +1,10 @@
-import { APP_PACKAGE } from "../../static/constants"
+import basePage from "../base.page"
 
 class AutoCompletePage {
     get countryInputElement() { return $('//*[@resource-id="io.appium.android.apis:id/edit"]') }
 
     async openCountryInputPage() {
-        await driver.startActivity(APP_PACKAGE, ".view.AutoComplete1")
+        await basePage.openUsingPackage(".view.AutoComplete1")
     }
 }
 export default new AutoCompletePage()

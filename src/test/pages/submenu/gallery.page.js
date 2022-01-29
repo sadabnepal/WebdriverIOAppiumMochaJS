@@ -1,14 +1,13 @@
-import { APP_PACKAGE } from "../../static/constants"
-import BasePage from "../base.page"
+import basePage from "../base.page"
 
 class GalleryPage {
 
     async openGalleryPage() {
-        await driver.startActivity(APP_PACKAGE, ".view.Gallery1")
+        await basePage.openUsingPackage(".view.Gallery1")
     }
 
     async scrollGalleryHorizontally() {
-        await BasePage.scrollHorizontally()
+        await basePage.scrollHorizontally()
     }
 
 }

@@ -1,4 +1,4 @@
-import { APP_PACKAGE } from "../../static/constants"
+import basePage from "../base.page"
 
 class MainMenuPage {
     get appNameHeader() { return $('android.widget.TextView') }
@@ -7,7 +7,7 @@ class MainMenuPage {
     get viewsMenuElement() { return $('~Views') }
 
     async openMainMenu() {
-        await driver.startActivity(APP_PACKAGE, ".ApiDemos")
+        await basePage.openUsingPackage(".ApiDemos")
     }
 
     async clickOnAppMenu() {

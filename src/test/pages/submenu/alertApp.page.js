@@ -1,4 +1,4 @@
-import { APP_PACKAGE } from "../../static/constants"
+import basePage from "../base.page"
 
 class AlertAppPage {
     get listDialougElement() { return $("//*[@content-desc='List dialog']") }
@@ -8,7 +8,7 @@ class AlertAppPage {
     get alertTitleElement() { return $('//*[@resource-id="android:id/alertTitle"]') }
 
     async openAlertPage() {
-        await driver.startActivity(APP_PACKAGE, ".app.AlertDialogSamples")
+        await basePage.openUsingPackage(".app.AlertDialogSamples")
     }
 
     async navigateToCommandTwoPopup() {
