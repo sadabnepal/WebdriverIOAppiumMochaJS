@@ -1,6 +1,6 @@
 import { APP_PACKAGE } from "../static/constants";
 
-class BasePage {
+export default class BasePage {
 
     findByTextContains(partialText) {
         return $(`android=new UiSelector().textContains("${partialText}")`);
@@ -19,4 +19,3 @@ class BasePage {
     }
 
 }
-export default new BasePage()

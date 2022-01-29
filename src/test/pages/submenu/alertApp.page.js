@@ -1,6 +1,6 @@
-import basePage from "../base.page"
+import BasePage from "../base.page"
 
-class AlertAppPage {
+class AlertAppPage extends BasePage {
     get listDialougElement() { return $("//*[@content-desc='List dialog']") }
     get commandTwoElement() { return $("//*[@text='Command two']") }
     get commandTwoMsgElement() { return $('//*[@resource-id="android:id/message"]') }
@@ -8,7 +8,7 @@ class AlertAppPage {
     get alertTitleElement() { return $('//*[@resource-id="android:id/alertTitle"]') }
 
     async openAlertPage() {
-        await basePage.openUsingPackage(".app.AlertDialogSamples")
+        await this.openUsingPackage(".app.AlertDialogSamples")
     }
 
     async navigateToCommandTwoPopup() {

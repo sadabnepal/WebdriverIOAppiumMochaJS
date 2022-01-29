@@ -1,6 +1,6 @@
-import BasePage from "../base.page"
+import BasePage from "../base.page";
 
-class DateViewPage {
+class DateViewPage extends BasePage {
 
     get dateWidgetMenu() { return $('~Date Widgets') }
     get dialogOption() { return $('~1. Dialog') }
@@ -18,7 +18,7 @@ class DateViewPage {
     }
 
     async scrollToNextMonthAndSelectDay(day) {
-        await BasePage.scrollHorizontally()
+        await this.scrollHorizontally()
         await this.selectDay(day)
         await this.dateOKButton.click()
     }

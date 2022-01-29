@@ -1,13 +1,13 @@
-import basePage from "../base.page"
+import BasePage from "../base.page"
 
-class MainMenuPage {
+class MainMenuPage extends BasePage {
     get appNameHeader() { return $('android.widget.TextView') }
     get allMenuItemsElements() { return $$(".android.widget.TextView") }
     get appMenuElement() { return $('~App') }
     get viewsMenuElement() { return $('~Views') }
 
     async openMainMenu() {
-        await basePage.openUsingPackage(".ApiDemos")
+        await this.openUsingPackage(".ApiDemos")
     }
 
     async clickOnAppMenu() {

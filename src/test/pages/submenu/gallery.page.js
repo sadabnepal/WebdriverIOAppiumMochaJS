@@ -1,13 +1,13 @@
-import basePage from "../base.page"
+import BasePage from "../base.page"
 
-class GalleryPage {
+class GalleryPage extends BasePage {
 
     async openGalleryPage() {
-        await basePage.openUsingPackage(".view.Gallery1")
+        await this.openUsingPackage(".view.Gallery1")
     }
 
     async scrollGalleryHorizontally() {
-        await basePage.scrollHorizontally()
+        await this.scrollHorizontally()
     }
 
 }

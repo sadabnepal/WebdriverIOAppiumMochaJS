@@ -1,4 +1,6 @@
-class AppMenuPage {
+import BasePage from "../base.page"
+
+class AppMenuPage extends BasePage {
     get actionBar() { return $('~Action Bar') }
     get activitySubMenu() { return $('~Activity') }
 
