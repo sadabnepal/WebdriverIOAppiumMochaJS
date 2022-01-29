@@ -1,4 +1,5 @@
-import { ANDROID_APP_PATH, MOCHA_OUTPUT_DIR } from './src/test/static/pathconstants';
+import { singleDeviceCapabalities } from './src/config/capabilities';
+import { MOCHA_OUTPUT_DIR } from './src/test/static/pathconstants';
 
 export const config = {
     // ====================
@@ -18,16 +19,7 @@ export const config = {
     // Capabilities
     // ============
     maxInstances: 10,
-    capabilities: [{
-        platformName: "Android",
-        "appium:platformVersion": "11",
-        "appium:deviceName": "Pixel 3",
-        "appium:automationName": "UiAutomator2",
-        "appium:app": ANDROID_APP_PATH,
-        'appium:noReset': true,
-        'appium:newCommandTimeout': 240,
-        "appium:autoGrantPermissions": true
-    }],
+    capabilities: singleDeviceCapabalities,
     // ===================
     // Test Configurations
     // ===================

@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "wdio run wdio.conf.js",
+    "test-parallel": "wdio run wdio.conf-parallel.js",
     "report": "marge ./reports/mocha/wdio-ma-merged.json && move mochawesome-report.html ./mochawesome-report",
     "list-driver": "appium driver list",
     "install-driver-android": "appium driver install uiautomator2",

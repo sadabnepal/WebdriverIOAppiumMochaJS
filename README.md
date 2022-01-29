@@ -25,9 +25,17 @@ npm install
 
 #### Setup/Create virtual device on Android studio:
 ```
+Device 1:
+---------
 platformName: Android
-platformVersion: 11
+android verion: 11
 deviceName: Pixel 3
+
+Device 2: [ for parallel execution]
+---------
+platformName: Android
+android verion: 10
+deviceName: Nexus 6
 ```
 
 #### Verify appium drivers:
@@ -53,6 +61,7 @@ all options should be green checked as shown in below image to start.
 ### Run Test:
 ```
 npm test
+npm run test-parallel
 ```
 
 ### Generate Report:
