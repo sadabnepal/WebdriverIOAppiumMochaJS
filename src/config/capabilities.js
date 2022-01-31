@@ -1,6 +1,7 @@
 import { ANDROID_APP_PATH } from "../test/static/pathconstants";
+require('dotenv').config();
 
-export const singleDeviceCapabalities = [
+export const singleAndroidDeviceCapabalities = [
     {
         platformName: "Android",
         "appium:platformVersion": "11",
@@ -14,8 +15,8 @@ export const singleDeviceCapabalities = [
     }
 ]
 
-export const multiDeviceCapabalities = [
-    ...singleDeviceCapabalities,
+export const multiAndroidDeviceCapabalities = [
+    ...singleAndroidDeviceCapabalities,
     {
         platformName: "Android",
         "appium:platformVersion": "10",
@@ -28,3 +29,23 @@ export const multiDeviceCapabalities = [
         "appium:autoGrantPermissions": true
     }
 ]
+
+export const androidBrowserStackCapabalities = [{
+    project: "Webdriverio Android Project",
+    build: "browserstack-build-1",
+    name: "single_test",
+    device: process.env.BROWSERSTACK_ANDROID_DEVICE,
+    os_version: process.env.BROWSERSTACK_ANDROID_VERSION,
+    app: process.env.BROWSERSTACK_ANDROID_APP_ID,
+    'browserstack.debug': true
+}]
+
+export const iosBrowserStackCapabalities = [{
+    project: "First Webdriverio iOS Project",
+    build: "browserstack-build-1",
+    name: "single_test",
+    device: process.env.BROWSERSTACK_IOS_DEVICE,
+    os_version: process.env.BROWSERSTACK_IOS_VERSION,
+    app: process.env.BROWSERSTACK_IOS_APP_ID,
+    'browserstack.debug': true
+}]
