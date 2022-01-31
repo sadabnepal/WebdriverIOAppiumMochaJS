@@ -58,6 +58,29 @@ npm run android-doctor
 all options should be green checked as shown in below image to start.
 ![android_config.png](sample/android_config.png)
 
+#### SetUp BrowserStack
+- Create account
+- Find username, access key
+- Upload Android (.apk) and IOS (.ipa) files used in project
+- Note down app id for both
+- Select device for both android and ios
+- Update all details in .env file
+
+#### .env file data update
+create .env file in root project folder, update below details from browserstack
+```
+BROWSERSTACK_USERNAME=
+BROWSERSTACK_ACCESS_KEY=
+
+BROWSERSTACK_ANDROID_APP_ID=
+BROWSERSTACK_ANDROID_DEVICE=
+BROWSERSTACK_ANDROID_VERSION=
+
+BROWSERSTACK_IOS_APP_ID=
+BROWSERSTACK_IOS_DEVICE=
+BROWSERSTACK_IOS_VERSION=
+```
+
 ### Run Test:
 ```
 npm test
