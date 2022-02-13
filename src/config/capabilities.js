@@ -4,14 +4,16 @@ require('dotenv').config();
 export const singleAndroidDeviceCapabalities = [
     {
         platformName: "Android",
-        "appium:platformVersion": "11",
-        "appium:deviceName": "Pixel 3",
+        "appium:platformVersion": process.env.EMULATOR_DEVICE1_VERSION,
+        "appium:deviceName": process.env.EMULATOR_DEVICE1_NAME,
         "appium:systemPort": "8200",
         "appium:automationName": "UiAutomator2",
         "appium:app": ANDROID_APP_PATH,
         'appium:noReset': true,
         'appium:newCommandTimeout': 240,
-        "appium:autoGrantPermissions": true
+        "appium:autoGrantPermissions": true,
+        "appium:avd": process.env.EMULATOR_DEVICE1_ID,
+        "appium:avdLaunchTimeout": 180000
     }
 ]
 
@@ -19,14 +21,16 @@ export const multiAndroidDeviceCapabalities = [
     ...singleAndroidDeviceCapabalities,
     {
         platformName: "Android",
-        "appium:platformVersion": "10",
-        "appium:deviceName": "Nexus 6",
+        "appium:platformVersion": process.env.EMULATOR_DEVICE2_VERSION,
+        "appium:deviceName": process.env.EMULATOR_DEVICE2_NAME,
         "appium:systemPort": "8201",
         "appium:automationName": "UiAutomator2",
         "appium:app": ANDROID_APP_PATH,
         'appium:noReset': true,
         'appium:newCommandTimeout': 240,
-        "appium:autoGrantPermissions": true
+        "appium:autoGrantPermissions": true,
+        "appium:avd": process.env.EMULATOR_DEVICE2_ID,
+        "appium:avdLaunchTimeout": 180000
     }
 ]
 

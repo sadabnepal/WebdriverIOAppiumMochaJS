@@ -19,7 +19,7 @@ export const config = {
     // Capabilities
     // ============
     maxInstances: 10,
-    capabilities: process.env.PARALLEL == 'true' ? multiAndroidDeviceCapabalities : singleAndroidDeviceCapabalities,
+    capabilities: process.env.RUN_MODE == 'parallel' ? multiAndroidDeviceCapabalities : singleAndroidDeviceCapabalities,
     // ===================
     // Test Configurations
     // ===================
