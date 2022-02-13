@@ -1,16 +1,19 @@
-import { singleDeviceCapabalities } from './src/config/capabilities';
-import { MOCHA_OUTPUT_DIR } from './src/test/static/pathconstants';
+import { iosBrowserStackCapabalities } from './src/config/capabilities';
+import { MOCHA_IOS_OUTPUT_DIR } from './src/test/static/pathconstants';
+require('dotenv').config();
 
 export const config = {
     // ====================
     // Runner Configuration
     // ====================
-    port: 4723,
+    user: process.env.BROWSERSTACK_USERNAME,
+    key: process.env.BROWSERSTACK_ACCESS_KEY,
+    
     // ==================
     // Specify Test Files
     // ==================
     specs: [
-        './src/test/specs/**/*.js'
+        './src/test/specs/iosApp.spec.js'
     ],
     exclude: [
         // 'path/to/excluded/files'
@@ -19,7 +22,7 @@ export const config = {
     // Capabilities
     // ============
     maxInstances: 10,
-    capabilities: singleDeviceCapabalities,
+    capabilities: iosBrowserStackCapabalities,
     // ===================
     // Test Configurations
     // ===================
@@ -30,13 +33,13 @@ export const config = {
     waitforTimeout: 10000,
     connectionRetryTimeout: 120000,
     connectionRetryCount: 3,
-    services: ['appium'],
+    services: ['browserstack'],
     framework: 'mocha',
     // specFileRetries: 1,
     // specFileRetriesDelay: 0,
     reporters: ['spec',
         ['mochawesome', {
-            outputDir: MOCHA_OUTPUT_DIR,
+            outputDir: MOCHA_IOS_OUTPUT_DIR,
             outputFileFormat: (opts) => {
                 return `results-${opts.cid}.${opts.capabilities.platformName}.json`
             }
@@ -181,7 +184,7 @@ export const config = {
     // eslint-disable-next-line no-unused-vars
     onComplete: function (exitCode, config, capabilities, results) {
         const mergeResults = require('wdio-mochawesome-reporter/mergeResults')
-        mergeResults(MOCHA_OUTPUT_DIR, "results-*");
+        mergeResults(MOCHA_IOS_OUTPUT_DIR, "results-*");
     },
     /**
     * Gets executed when a refresh happens.

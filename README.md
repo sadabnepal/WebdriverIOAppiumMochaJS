@@ -25,25 +25,20 @@ npm install
 
 #### Setup/Create virtual device on Android studio:
 ```
-Device 1:
----------
-platformName: Android
-android verion: 11
-deviceName: Pixel 3
-
-Device 2: [ for parallel execution]
----------
-platformName: Android
-android verion: 10
-deviceName: Nexus 6
+Pixel 3 [ Android v11 ]
+Nexus 6 [ Android v10 ]
 ```
 
 #### Verify appium drivers:
 ```
 npm run list-driver
+
+Sample output log of driver
+-----------------------------
+✔ Listing available drivers
+- uiautomator2@1.75.0 [installed (NPM)]
+- xcuitest [not installed]
 ```
-uiautomator2 should be installed for android and xcuitest for ios<br/>
-![appium_driver_list.png](sample/appium_driver_list.png)
 
 If drivers are not installed then run below commnad as required:
 ```
@@ -54,9 +49,57 @@ npm run install-driver-ios
 #### Verify all pre-requisite for android:
 ```
 npm run android-doctor
+
+Sample output log of configuration [ all check should be green checked]
+-----------------------------
+info AppiumDoctor Appium Doctor v.1.16.0
+info AppiumDoctor ### Diagnostic for necessary dependencies starting ###
+info AppiumDoctor  ✔ The Node.js binary was found at: C:\Program Files\nodejs\node.EXE
+info AppiumDoctor  ✔ Node version is 14.17.3
+info AppiumDoctor  ✔ ANDROID_HOME is set to: C:\<loginid>\ssaqib\AppData\Local\Android\Sdk
+info AppiumDoctor  ✔ JAVA_HOME is set to: C:\Program Files\Eclipse Foundation\jdk-11.0.12.7-hotspot
+info AppiumDoctor    Checking adb, android, emulator
+info AppiumDoctor      'adb' is in C:\Users\<loginid>\AppData\Local\Android\Sdk\platform-tools\adb.exe
+info AppiumDoctor      'android' is in C:\Users\<loginid>\AppData\Local\Android\Sdk\tools\android.bat
+info AppiumDoctor      'emulator' is in C:\Users\<loginid>\AppData\Local\Android\Sdk\emulator\emulator.exe      
+info AppiumDoctor  ✔ adb, android, emulator exist: C:\Users\<loginid>\AppData\Local\Android\Sdk
+info AppiumDoctor  ✔ 'bin' subfolder exists under 'C:\Program Files\Eclipse Foundation\jdk-11.0.12.7-hotspot'
 ```
-all options should be green checked as shown in below image to start.
-![android_config.png](sample/android_config.png)
+
+#### SetUp BrowserStack
+```
+- Create account
+- Find username, access key
+- Upload Android (.apk) and IOS (.ipa) files used in project
+- Note down app id for both
+- Select device for both android and ios
+- Update all details in .env file
+```
+
+#### .env file data update
+<i>Note: create .env file in root project folder, update required details</i>
+```
+RUN_MODE=parallel  # Add this only when you want to run test in both devices
+
+EMULATOR_DEVICE1_ID=Pixel_3
+EMULATOR_DEVICE1_NAME=Pixel 3
+EMULATOR_DEVICE1_VERSION=11
+
+EMULATOR_DEVICE2_ID=Nexus 6
+EMULATOR_DEVICE2_NAME=Nexus_6
+EMULATOR_DEVICE2_VERSION=10
+
+BROWSERSTACK_USERNAME=
+BROWSERSTACK_ACCESS_KEY=
+
+BROWSERSTACK_ANDROID_APP_ID=
+BROWSERSTACK_ANDROID_DEVICE=
+BROWSERSTACK_ANDROID_VERSION=
+
+BROWSERSTACK_IOS_APP_ID=
+BROWSERSTACK_IOS_DEVICE=
+BROWSERSTACK_IOS_VERSION=
+```
 
 ### Run Test:
 ```
