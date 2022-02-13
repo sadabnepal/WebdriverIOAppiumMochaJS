@@ -113,4 +113,4 @@ npm run report
 ```
 
 ### Sample Report
-![report.png](sample/report.png)
+![report](https://user-images.githubusercontent.com/65847528/153757781-c83b8aa9-52f3-4475-b4a0-4c0c3ae8cb55.png)
