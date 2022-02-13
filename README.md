@@ -50,20 +50,20 @@ npm run install-driver-ios
 ```
 npm run android-doctor
 
-Sample output log of configuration [ all check should be green checked]
+Sample output log of configuration [ all option should be green checked]
 -----------------------------
 info AppiumDoctor Appium Doctor v.1.16.0
 info AppiumDoctor ### Diagnostic for necessary dependencies starting ###
 info AppiumDoctor  ✔ The Node.js binary was found at: C:\Program Files\nodejs\node.EXE
 info AppiumDoctor  ✔ Node version is 14.17.3
-info AppiumDoctor  ✔ ANDROID_HOME is set to: C:\<loginid>\ssaqib\AppData\Local\Android\Sdk
-info AppiumDoctor  ✔ JAVA_HOME is set to: C:\Program Files\Eclipse Foundation\jdk-11.0.12.7-hotspot
+info AppiumDoctor  ✔ ANDROID_HOME is set to:<APP_DATA_LOCAL_PATH>\Android\Sdk
+info AppiumDoctor  ✔ JAVA_HOME is set to: <JDK_PATH>
 info AppiumDoctor    Checking adb, android, emulator
-info AppiumDoctor      'adb' is in C:\Users\<loginid>\AppData\Local\Android\Sdk\platform-tools\adb.exe
-info AppiumDoctor      'android' is in C:\Users\<loginid>\AppData\Local\Android\Sdk\tools\android.bat
-info AppiumDoctor      'emulator' is in C:\Users\<loginid>\AppData\Local\Android\Sdk\emulator\emulator.exe      
-info AppiumDoctor  ✔ adb, android, emulator exist: C:\Users\<loginid>\AppData\Local\Android\Sdk
-info AppiumDoctor  ✔ 'bin' subfolder exists under 'C:\Program Files\Eclipse Foundation\jdk-11.0.12.7-hotspot'
+info AppiumDoctor      'adb' is in <APP_DATA_LOCAL_PATH>\Android\Sdk\platform-tools\adb.exe
+info AppiumDoctor      'android' is in <APP_DATA_LOCAL_PATH>\Android\Sdk\tools\android.bat
+info AppiumDoctor      'emulator' is in <APP_DATA_LOCAL_PATH>\Android\Sdk\emulator\emulator.exe      
+info AppiumDoctor  ✔ adb, android, emulator exist: <APP_DATA_LOCAL_PATH>\Android\Sdk
+info AppiumDoctor  ✔ 'bin' subfolder exists under '<JDK_PATH>\jdk-11.0.12.7-hotspot'
 ```
 
 #### SetUp BrowserStack
