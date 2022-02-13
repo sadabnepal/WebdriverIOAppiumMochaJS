@@ -104,7 +104,6 @@ BROWSERSTACK_IOS_VERSION=
 ### Run Test:
 ```
 npm test
-npm run test-parallel
 ```
 
 ### Generate Report:
