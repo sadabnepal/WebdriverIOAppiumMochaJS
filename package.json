@@ -4,15 +4,11 @@
   "description": "webdriverio appium learning project",
   "main": "index.js",
   "scripts": {
-    "test-android": "wdio run wdio.conf.android.js",
-    "test-android-bs": "wdio run wdio.conf.android.bs.js",
-    "test-ios-bs": "wdio run wdio.conf.ios.bs.js",
+    "test-android": "wdio run ./src/config/wdio.conf.android.js",
+    "test-android-bs": "wdio run ./src/config/wdio.conf.android.bs.js",
+    "test-ios-bs": "wdio run ./src/config/wdio.conf.ios.bs.js",
     "report-android": "marge ./reports/android/mocha/wdio-ma-merged.json && move mochawesome-report.html ./mochawesome-report",
-    "report-ios": "marge ./reports/ios/mocha/wdio-ma-merged.json && move mochawesome-report.html ./mochawesome-report",
-    "list-driver": "appium driver list",
-    "install-driver-android": "appium driver install uiautomator2",
-    "install-driver-ios": "appium driver install xcuitest",
-    "android-doctor": "appium-doctor"
+    "report-ios": "marge ./reports/ios/mocha/wdio-ma-merged.json && move mochawesome-report.html ./mochawesome-report"
   },
   "keywords": [
     "webdriverio",

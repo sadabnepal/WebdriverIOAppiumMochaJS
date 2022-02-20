@@ -1,4 +1,4 @@
-import { ANDROID_APP_PATH } from "../test/static/pathconstants";
+import { ANDROID_APP_PATH } from "../constants/pathconstants";
 import { ENV_READER } from "./env_reader";
 
 export const singleAndroidDeviceCapabalities = [{

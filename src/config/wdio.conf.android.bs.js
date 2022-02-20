@@ -1,6 +1,6 @@
-import { androidBrowserStackCapabalities } from './src/config/capabilities';
-import { MOCHA_ANDROID_OUTPUT_DIR } from './src/test/static/pathconstants';
-import { ENV_READER } from './src/config/env_reader';
+import { androidBrowserStackCapabalities } from './capabilities';
+import { MOCHA_ANDROID_OUTPUT_DIR } from '../constants/pathconstants';
+import { ENV_READER } from './env_reader';
 
 export const config = {
     user: ENV_READER.BROWSERSTACK_USERNAME,

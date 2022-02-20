@@ -5,17 +5,17 @@ import AutoCompletePage from '../pages/submenu/autoComplete.page';
 import dateViewsPage from '../pages/submenu/dateViews.page';
 import GalleryPage from '../pages/submenu/gallery.page';
 import wallpaperPage from '../pages/submenu/wallpaper.page';
-import { APP_HEADER, COMMAND_TWO_POPUP_MSG, MENU_ITEMS, ALERT_TEXT, WALLPAPER_TEXT } from '../static/constants';
+import testdata from '../data/testdata.json'
 
 describe('API Demo Android APP tests', () => {
 
     it('should validate app name', async () => {
-        await expect(MainMenuPage.appNameHeader).toHaveText(APP_HEADER);
+        await expect(MainMenuPage.appNameHeader).toHaveText(testdata.APP_HEADER);
     })
 
     it('should validate all menu items', async () => {
         const actualMenuItems = await MainMenuPage.allMenuItemsElements.map(async menuItem => await menuItem.getText());
-        expect(actualMenuItems).toEqual(MENU_ITEMS)
+        expect(actualMenuItems).toEqual(testdata.MENU_ITEMS)
         expect(await MainMenuPage.allMenuItemsElements.length).toBeGreaterThan(0);
     })
 
@@ -26,7 +26,7 @@ describe('API Demo Android APP tests', () => {
 
     it('should validate command two menu with app activity', async () => {
         await AlertAppPage.navigateToCommandTwoPopup()
-        await expect(AlertAppPage.commandTwoMsgElement).toHaveText(COMMAND_TWO_POPUP_MSG);
+        await expect(AlertAppPage.commandTwoMsgElement).toHaveText(testdata.COMMAND_TWO_POPUP_MSG);
     })
 
     it('should validate screen top sendkeys', async () => {
@@ -38,7 +38,7 @@ describe('API Demo Android APP tests', () => {
     it('should validate alert text and accept alert', async () => {
         await AlertAppPage.openAlertPage()
         await AlertAppPage.clickOnOkCancelDialouge()
-        expect(await driver.getAlertText()).toEqual(ALERT_TEXT)
+        expect(await driver.getAlertText()).toContain(testdata.ALERT_TEXT)
         await driver.acceptAlert()
         await expect(AlertAppPage.alertTitleElement).not.toExist()
     })
@@ -46,7 +46,7 @@ describe('API Demo Android APP tests', () => {
     it('should validate alert text and dismiss alert', async () => {
         await AlertAppPage.openAlertPage()
         await AlertAppPage.clickOnOkCancelDialouge()
-        expect(await driver.getAlertText()).toEqual(ALERT_TEXT)
+        expect(await driver.getAlertText()).toContain(testdata.ALERT_TEXT)
         await driver.dismissAlert()
         await expect(AlertAppPage.alertTitleElement).not.toExist()
     })
@@ -56,7 +56,7 @@ describe('API Demo Android APP tests', () => {
         await MainMenuPage.clickOnAppMenu()
         await AppMenuPage.clickOnActivityMenu()
         await wallpaperPage.scrollAndclickOnWallpaperMenu()
-        await expect(wallpaperPage.wallpaperTextElement).toHaveTextContaining(WALLPAPER_TEXT)
+        await expect(wallpaperPage.wallpaperTextElement).toHaveTextContaining(testdata.WALLPAPER_TEXT)
     })
 
     it('should validate horizontal scrolling', async () => {

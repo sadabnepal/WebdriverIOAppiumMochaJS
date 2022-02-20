@@ -1,4 +1,4 @@
-import { APP_PACKAGE } from "../static/constants";
+const APP_PACKAGE = "io.appium.android.apis"
 
 export default class BasePage {
 

@@ -1,5 +1,5 @@
-import { singleAndroidDeviceCapabalities, multiAndroidDeviceCapabalities } from './src/config/capabilities';
-import { MOCHA_ANDROID_OUTPUT_DIR } from './src/test/static/pathconstants';
+import { singleAndroidDeviceCapabalities, multiAndroidDeviceCapabalities } from './capabilities';
+import { MOCHA_ANDROID_OUTPUT_DIR } from '../constants/pathconstants';
 
 export const config = {
     // ====================
