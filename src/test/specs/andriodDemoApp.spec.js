@@ -31,8 +31,8 @@ describe('API Demo Android APP tests', () => {
 
     it('should validate screen top sendkeys', async () => {
         await AutoCompletePage.openCountryInputPage()
-        await AutoCompletePage.countryInputElement.setValue('Nepal')
-        await expect(AutoCompletePage.countryInputElement).toHaveText('Nepal')
+        await AutoCompletePage.countryInputElement.setValue(testdata.country)
+        await expect(AutoCompletePage.countryInputElement).toHaveText(testdata.country)
     })
 
     it('should validate alert text and accept alert', async () => {
