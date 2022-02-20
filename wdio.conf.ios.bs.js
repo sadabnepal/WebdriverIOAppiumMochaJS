@@ -1,13 +1,13 @@
 import { iosBrowserStackCapabalities } from './src/config/capabilities';
 import { MOCHA_IOS_OUTPUT_DIR } from './src/test/static/pathconstants';
-require('dotenv').config();
+import { ENV_READER } from './src/config/env_reader';
 
 export const config = {
     // ====================
     // Runner Configuration
     // ====================
-    user: process.env.BROWSERSTACK_USERNAME,
-    key: process.env.BROWSERSTACK_ACCESS_KEY,
+    user: ENV_READER.BROWSERSTACK_USERNAME,
+    key: ENV_READER.BROWSERSTACK_ACCESS_KEY,
     
     // ==================
     // Specify Test Files
