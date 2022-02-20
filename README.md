@@ -11,6 +11,40 @@
 
 ### Getting Started:
 
+#### Installing Appium on a local machine
+> There are several documents and instructions on the internet to install Appium on your local machine.
+This is just one of the many ;-)
+
+To setup the local test environment the following needs to be installed:
+- [appium](https://github.com/appium/appium) with `npm install appium@next -g`
+- [appium-doctor](https://github.com/appium/appium-doctor) with `npm install appium-doctor -g`
+- [appium-desktop](https://github.com/appium/appium-desktop) This one needs to be downloaded from [here](https://github.com/appium/appium-desktop/releases) and pick the latest stable releases
+
+#### Setup Android SDK path environment variable
+```
+- ANDROID_HOME = <path to Sdk folder>
+- %ANDROID_HOME%\tools [path variable]
+- %ANDROID_HOME%\tools\bin  [path variable]
+- %ANDROID_HOME%\platform-tools  [path variable]
+```
+
+#### Setup/Create virtual device on Android studio:
+```
+1] Open Android Studio
+2] Click on More Actions 
+   --> AVD Manager 
+   --> Create Virtual Device 
+   --> Select the device and OS version (from below device details) 
+   --> Finish
+3] Once Virtual device is created, click on Launch this AVD in the emulator.
+4] Command to view the list of devices attached `adb devices`
+```
+
+```
+Device 1: Pixel 3 - version 11
+Device 2: Nexus 6 - version 10 [ if you want to run tests in parallel ] 
+```
+
 #### Clone repository:
 ```bash
 git clone https://github.com/sadabnepal/WebdriverIOAppiumMochaJS.git
@@ -23,15 +57,9 @@ Note: all npm command should be executed from root project folder.
 npm install
 ```
 
-#### Setup/Create virtual device on Android studio:
-```
-Pixel 3 [ Android v11 ]
-Nexus 6 [ Android v10 ]
-```
-
 #### Verify appium drivers:
 ```
-npm run list-driver
+appium driver list
 
 Sample output log of driver
 -----------------------------
@@ -40,15 +68,16 @@ Sample output log of driver
 - xcuitest [not installed]
 ```
 
-If drivers are not installed then run below commnad as required:
+> If drivers are not installed then run below commnad as required:
 ```
-npm run install-driver-android
-npm run install-driver-ios
+appium driver install uiautomator2  [ android driver ]
+appium driver install xcuitest      [ ios driver ]
 ```
 
 #### Verify all pre-requisite for android:
+> appium-doctor is used to diagnose and fix common Node, iOS and Android configuration issues before starting Appium. You only run it once to check your local machine. See an example output below.
 ```
-npm run android-doctor
+appium-doctor
 
 Sample output log of configuration [ all option should be green checked]
 -----------------------------
@@ -64,16 +93,6 @@ info AppiumDoctor      'android' is in <APP_DATA_LOCAL_PATH>\Android\Sdk\tools\a
 info AppiumDoctor      'emulator' is in <APP_DATA_LOCAL_PATH>\Android\Sdk\emulator\emulator.exe      
 info AppiumDoctor  ✔ adb, android, emulator exist: <APP_DATA_LOCAL_PATH>\Android\Sdk
 info AppiumDoctor  ✔ 'bin' subfolder exists under '<JDK_PATH>\jdk-11.0.12.7-hotspot'
-```
-
-#### SetUp BrowserStack
-```
-- Create account
-- Find username, access key
-- Upload Android (.apk) and IOS (.ipa) files used in project
-- Note down app id for both
-- Select device for both android and ios
-- Update all details in .env file
 ```
 
 #### .env file data update
@@ -99,6 +118,16 @@ BROWSERSTACK_ANDROID_VERSION=
 BROWSERSTACK_IOS_APP_ID=
 BROWSERSTACK_IOS_DEVICE=
 BROWSERSTACK_IOS_VERSION=
+```
+
+#### SetUp BrowserStack
+```
+- Create account
+- Find username, access key
+- Upload Android (.apk) and IOS (.ipa) files used in project
+- Note down app id for both
+- Select device for both android and ios
+- Update all details in .env file
 ```
 
 ### Run Test:
